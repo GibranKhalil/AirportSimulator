@@ -62,6 +62,15 @@ public class Pista {
         }
     }
 
+
+public void decolar() {
+    if (!filaDec1.ehVazia()) {
+        Aviao aviao = filaDec1.poll();
+        System.out.println("Avião decolando: " + aviao);
+    } else {
+        System.out.println("Não há aviões na fila de decolagem.");
+    }
+}
     public int obterTamanho(){
         return filaAtt1.pegarTamanho() + filaAtt2.pegarTamanho();
     }

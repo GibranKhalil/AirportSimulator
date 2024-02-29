@@ -7,7 +7,7 @@ public class Sortear {
     private int numeroAleatorio;
 
     public Sortear() {
-        this.numeroAleatorio = gerador.nextInt(20);
+        this.numeroAleatorio = gerador.nextInt(1,20);
     }
 
     public int getNumeroAleatorio() {

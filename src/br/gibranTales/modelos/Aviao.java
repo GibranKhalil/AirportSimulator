@@ -38,7 +38,7 @@ public class Aviao {
     public String aviaoCair(){
         return """
                 O Avião: AV-%d caiu
-                """.formatted(this.getCombustivelAviao());
+                """.formatted(this.getIdAviao());
     }
 
     public void setCombustivelAviao(int combustivelAviao) {

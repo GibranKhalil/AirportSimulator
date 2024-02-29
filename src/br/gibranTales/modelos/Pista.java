@@ -28,19 +28,42 @@ public class Pista {
         filaAlvo.adicionar(aviao);
     }
 
+    public void diminuirCombustivelAvioes(){
+        for(int i = 0; i < this.listaFilas.size(); i++) {
+            for (int j = 0; j < this.listaFilas.get(i).pegarTamanho(); j++) {
+                this.listaFilas.get(i).pegarPosicao(j).diminuirCombustivel();
+            }
+        }
+    }
+
     public void aterissarAviao(){
         for(int i = 0; i < this.listaFilas.size(); i++){
             for(int j = 0; j < this.listaFilas.get(i).pegarTamanho(); j++){
                 if(verificarUltimoCombustivel(this.listaFilas.get(i).pegarPosicao(j))){
-                    System.out.println("Pousou: " + this.listaFilas.get(i).pegarPosicao(j));
-                    this.listaFilas.get(i).removerPosicao(j);
+                    diminuirCombustivelAvioes();
+                    Aterrissagem aterrissagem =  new Aterrissagem(this.listaFilas.get(i).pegarPosicao(j), this.listaFilas.get(i).pegarPosicao(j).getCombustivelAviao());
+                    aterrissagem.aterrissarAviao();
+                    System.out.println(this.listaFilas.get(i).pegarPosicao(j));
+                    this.listaFilas.get(i).remover();
+                    aviaoSemCombustivel();
                     return;
                 };
-                System.out.println("Pousou: " + this.listaFilas.get(i).pegaPrimeiro());
-                this.listaFilas.get(i).remover();
             }
         }
-        //Usar a classe aterrisagem posteriormente
+    }
+
+    public void aviaoSemCombustivel(){
+        for(int i = 0; i < this.listaFilas.size(); i++){
+            for(int j = 0; j < this.listaFilas.get(i).pegarTamanho(); j++){
+                if(this.listaFilas.get(i).pegarPosicao(j).getCombustivelAviao() < 1){
+                    System.out.println(this.listaFilas.get(i).pegarPosicao(j).aviaoCair());
+                };
+            }
+        }
+    }
+
+    public int obterTamanho(){
+        return filaAtt1.pegarTamanho() + filaAtt2.pegarTamanho();
     }
 
     public boolean verificarUltimoCombustivel(Aviao aviao){

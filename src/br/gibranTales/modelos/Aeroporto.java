@@ -12,22 +12,24 @@ public class Aeroporto {
 
 
     public Aeroporto(){
-        Aviao novoAviao = new Aviao();
-        Aviao novoAviao1 = new Aviao();
-        Aviao novoAviao2 = new Aviao();
-        pista1.adicionarAviaoNaPista(novoAviao);
-        pista1.adicionarAviaoNaPista(novoAviao);
-        pista1.adicionarAviaoNaPista(novoAviao);
-        pista1.adicionarAviaoNaPista(novoAviao1);
-        pista1.adicionarAviaoNaPista(novoAviao2);
-        System.out.println("Pista 1: \n" + pista1);
-        System.out.println("Pista 2: \n" +pista2);
-        System.out.println("Pista Emergencial: \n" +pistaEmergencial);
-
+        listaPistas.add(pista1);
+        listaPistas.add(pista2);
+        listaPistas.add(pistaEmergencial);
+        for(int i = 0; i < 10; i++){
+            Aviao novoAviao = new Aviao();
+            pista1.adicionarAviaoNaPista(novoAviao);
+        }
+        for (int i = 0; i < 10; i++){
+            pista1.aterissarAviao();
+        }
     }
 
 
     public void popularPistasAtt(){
+        for(int i = 0; i < listaPistas.size(); i ++){
+            for(int j = 0; j < listaPistas.get(i).obterTamanho(); j++){
 
+            }
+        }
     }
 }

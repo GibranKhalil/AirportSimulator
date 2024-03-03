@@ -78,6 +78,11 @@ public void decolar() {
     public boolean verificarUltimoCombustivel(Aviao aviao){
         return aviao.getCombustivelAviao() == 1;
     }
+    
+    public ArrayList<Fila> getListaFilas() {
+    	return listaFilas; 
+    }
+    
 
     @Override
     public String toString() {
